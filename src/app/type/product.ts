@@ -24,7 +24,7 @@ export interface Product {
   yesterday: number;
   lastWeek: number;
   lastMonth: number;
-  change: PriceChange[];
+  change: PriceChange;
   markets: Market[];
 }
 

@@ -18,7 +18,7 @@ const NavLink = async () => {
         <div className="flex items-center gap-4 sm:gap-6 overflow-x-auto touch-pan-x active:cursor-grabbing whitespace-nowrap py-2 no-scrollbar">
           {data.map((items) => (
             <Link
-              href={`/category/${items.slug}`}
+              href={`/product/${items.slug}`}
               key={items.id}
               className="flex items-center gap-2 cursor-pointer transition-colors hover:text-green-600 shrink-0 text-sm sm:text-base font-medium py-1 select-none"
             >
