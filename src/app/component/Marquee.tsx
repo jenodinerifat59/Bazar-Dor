@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import MarqueeText from "react-marquee-text";
 import "react-marquee-text/dist/styles.css";
@@ -22,7 +23,9 @@ export default function Marquee() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products" );
+        const res = await fetch(
+          "https://api.api-store.workers.dev/api/bazardor/products"
+        );
         const data = await res.json();
 
         const filtered = data
@@ -48,26 +51,27 @@ export default function Marquee() {
             const isUp = pctValue > 0;
 
             return (
-              <div
-                key={item.id}
-                className="flex items-center gap-1.5 text-sm whitespace-nowrap"
-              >
-                <span>{categoryIcon}</span>
-                <span className="font-medium text-gray-800 hover:underline cursor-pointer">
-                  {nameBn}
-                </span>
+              <Link key={item.id} href={`/market/${item.id}`}>
+                <div className="flex items-center gap-1.5 text-sm whitespace-nowrap cursor-pointer">
+                  <span>{categoryIcon}</span>
+                  <span className="font-medium text-gray-800 hover:underline">
+                    {nameBn}
+                  </span>
 
-                <span className="font-semibold text-gray-900">{today} টাকা</span>
-                <span className="text-gray-500 text-xs">/{unit}</span>
+                  <span className="font-semibold text-gray-900">
+                    {today} টাকা
+                  </span>
+                  <span className="text-gray-500 text-xs">/{unit}</span>
 
-                <span
-                  className={`flex items-center gap-0.5 ml-1 font-semibold text-xs ${
-                    isUp ? "text-red-500" : "text-emerald-600"
-                  }`}
-                >
-                  {isUp ? "▲" : "▼"} {change?.pct}%
-                </span>
-              </div>
+                  <span
+                    className={`flex items-center gap-0.5 ml-1 font-semibold text-xs ${
+                      isUp ? "text-red-500" : "text-emerald-600"
+                    }`}
+                  >
+                    {isUp ? "▲" : "▼"} {change?.pct}%
+                  </span>
+                </div>
+              </Link>
             );
           })}
         </div>

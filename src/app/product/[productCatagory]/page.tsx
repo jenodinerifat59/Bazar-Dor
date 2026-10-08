@@ -52,8 +52,7 @@ const ProductPage = ({ params }: PageProps) => {
   };
 
   return (
-    <div className="p-4 max-w-7xl mx-auto">
-      {/* Header Container */}
+    <div className="p-4">
       <div className="flex items-center gap-3 mb-6 border border-1 shadow border-gray-300 p-3 rounded-2xl justify-between">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-2xl">
