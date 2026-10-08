@@ -12,17 +12,17 @@ interface AllmarketProps {
 }
 
 const Allmarket = ({ items }: AllmarketProps) => {
-  // সর্বনিম্ন দাম
+  
   const lowestMarket = items.reduce((prev, current) =>
     current.min < prev.min ? current : prev
   );
 
-  // সর্বাধিক দাম
+ 
   const highestMarket = items.reduce((prev, current) =>
     current.max > prev.max ? current : prev
   );
 
-  // সব market-এর average
+ 
   const averagePrice =
     items.reduce((total, item) => {
       return total + (item.min + item.max) / 2;

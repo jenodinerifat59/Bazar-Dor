@@ -1,5 +1,6 @@
 import React from 'react';
 import { Product } from '@/app/type/product';
+import Link from 'next/link';
 
 interface ProductsCardProps {
     product: Product;
@@ -14,6 +15,7 @@ const ProductsCard: React.FC<ProductsCardProps> = ({ product }) => {
 
     return (
         <div className="max-w-full p-4 bg-white rounded-2xl border border-gray-100 shadow-sm font-sans transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:border-gray-200">
+            <Link href={`/market/${product.id}`}>
             <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-green-50 border border-blue-400 border-dashed flex items-center justify-center overflow-hidden">
                     <span className="text-2xl">{product?.image || product?.categoryIcon || "📦"}</span>
@@ -51,6 +53,7 @@ const ProductsCard: React.FC<ProductsCardProps> = ({ product }) => {
                     <span>{pctValue}%</span>
                 </div>
             </div>
+            </Link>
         </div>
     );
 };

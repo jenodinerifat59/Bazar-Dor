@@ -1,4 +1,4 @@
-import React from "react";
+import Link from "next/link";
 import Datepage from "./Date";
 import Image from "next/image";
 
@@ -21,9 +21,12 @@ const Banner = () => {
             বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
           </p>
 
-          <button className="btn bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-lg text-base sm:text-lg font-medium transition-colors">
-            সব পণ্য দেখুন
-          </button>
+          <Link
+  href="#all-products"
+  className="btn bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-lg text-base sm:text-lg font-medium transition-colors"
+>
+  সব পণ্য দেখুন
+</Link>
         </div>
         <div className="w-full max-w-[280px] sm:max-w-[315px] md:w-auto flex justify-center">
           <Image 
