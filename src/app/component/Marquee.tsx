@@ -42,7 +42,6 @@ export default function Marquee() {
 
   return (
     <div className="bg-[#f3f4f6] border-y border-dashed border-gray-300 py-2">
-      {/* speed সরিয়ে duration ব্যবহার করা হয়েছে */}
       <MarqueeText direction="right" duration={30} pauseOnHover={true}>
         <div className="flex items-center gap-6 pr-6">
           {products.map((item) => {

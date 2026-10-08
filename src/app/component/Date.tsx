@@ -6,7 +6,7 @@ const Datepage = () => {
   return (
     <div>
       <p>{date}</p>
-    </div>
+    </div>)
 };
 
 export default Datepage;
