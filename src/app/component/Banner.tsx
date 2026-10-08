@@ -4,10 +4,9 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <div className="border border-gray-300 rounded-2xl p-4 sm:p-6 lg:p-8 mt-2 shadow-2xl lg:mt-6">
+    <div className="border border-gray-300 rounded-2xl p-4 sm:p-6 lg:p-8 mt-2 shadow-lg lg:mt-6">
       <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 md:gap-8">
-        
-        {/* টেক্সট অংশ */}
+      
         <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
           <div className="bg-green-200 w-fit py-1.5 px-4 text-green-700 font-semibold rounded-2xl text-sm sm:text-base">
             <Datepage />
