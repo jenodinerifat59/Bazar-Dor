@@ -14,7 +14,7 @@ const ProductDetailPage = async ({ params }: PageProps) => {
   console.log("Market ID:", marketId);
 
   const res = await fetch(
-    `https://api.abcz.workers.dev/api/bazardor/products/${marketId}`,
+    `https://api.api-store.workers.dev/api/bazardor/products/${marketId}`,
     {
       cache: "no-store",
     },

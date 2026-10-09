@@ -18,7 +18,7 @@ const ProductPage = ({ params }: PageProps) => {
 
   useEffect(() => {
     fetch(
-      `https://api.abcz.workers.dev/api/bazardor/products?category=${productCatagory}`
+      `https://api.api-store.workers.dev/api/bazardor/products?category=${productCatagory}`
     )
       .then((res) => res.json())
       .then((resData) => setData(resData))
