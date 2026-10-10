@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 BazarDor - বাজার দর
 
-## Getting Started
+## 📌 About The Project
 
-First, run the development server:
+BazarDor is a modern market price tracking web application built with **Next.js, TypeScript, Tailwind CSS, daisyUI, and Better Auth**. The application helps users explore daily prices of essential products in Bangladesh through a clean, responsive, and user-friendly interface.
+
+The project focuses on practicing modern Next.js concepts, API integration, authentication, dynamic routing, responsive UI development, and product data management.
+
+## 🛠️ Technologies Used
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- daisyUI
+- Better Auth
+- react-hot-toast
+
+## ✨ Key Features
+
+### 🛍️ Product Management
+
+- Display essential products with their names, prices, and units.
+- Show product details and market-wise prices.
+- Organize products into different categories.
+- Display product information using responsive cards.
+
+### 📊 Market Price Tracking
+
+- Display products with increasing and decreasing prices.
+- Show daily price changes with percentage indicators.
+- Compare minimum, maximum, and average prices.
+- Display a scrolling market price ticker.
+
+### 🗂️ Category & Sorting
+
+- Browse products by category.
+- Sort products by price from low to high.
+- Sort products by price from high to low.
+- Display loading skeletons while fetching data.
+
+### 🔐 Authentication
+
+- User registration and login.
+- Authentication using Better Auth.
+- Google and GitHub social login when configured.
+- Protected product detail pages.
+- Toast notifications for authentication success and errors.
+
+### 👤 User Profile
+
+- View user profile information.
+- Update user information.
+- Manage authentication sessions.
+
+### 📱 Responsive Design
+
+- Responsive layout for mobile, tablet, and desktop.
+- Mobile-friendly navigation.
+- Modern UI built with Tailwind CSS and daisyUI.
+- Custom 404 page for invalid routes.
+
+## 🔌 API Integration
+
+The application uses the BazarDor REST API to fetch product and category information.
+
+**Primary API:**
+`https://api.api-store.workers.dev/api/bazardor`
+
+**Alternative API:**
+`https://api.abcz.workers.dev/api/bazardor`
+
+### Available Endpoints
+
+- `/products` — Get all products.
+- `/products?category=chal` — Filter products by category.
+- `/products/1` — Get a single product.
+- `/categories` — Get all categories.
+- `/categories/chal` — Get a single category.
+
+## 🚀 Getting Started
 
 ```bash
+git clone YOUR_REPOSITORY_URL
+cd bazar-dor
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🌍 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The application can be deployed using Vercel or another platform that supports Next.js. Configure the required environment variables for Better Auth and the database before deployment.
 
-## Learn More
+## 👨‍💻 Developer
 
-To learn more about Next.js, take a look at the following resources:
+**MD. Jenodine Islam Rifat**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Frontend Developer | React.js | Next.js | TypeScript | Tailwind CSS
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
