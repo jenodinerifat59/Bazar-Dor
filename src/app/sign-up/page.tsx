@@ -3,6 +3,8 @@
 
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa6";
 import toast from "react-hot-toast";
 
 const SignUpPage = () => {
@@ -182,20 +184,23 @@ const SignUpPage = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-3 mb-6">
-          <button
-            type="button"
-            onClick={handelClick}
-            className="border border-gray-200 hover:bg-gray-50 py-2.5 px-2 rounded-lg text-xs font-medium"
-          >
-            Google দিয়ে চালিয়ে যান
-          </button>
 
           <button
             type="button"
+            onClick={handelClick}
+            className="flex items-center justify-center gap-2 px-3 py-2.5 border border-gray-200 rounded-lg bg-white hover:bg-gray-50 text-xs font-semibold text-gray-800 transition-colors shadow-sm"
+          ><FcGoogle />
+
+            <span>Google দিয়ে চালিয়ে যান</span>
+          </button>
+
+         
+            <button
+            type="button"
             onClick={handelSignGithub}
-            className="border border-gray-200 hover:bg-gray-50 py-2.5 px-2 rounded-lg text-xs font-medium"
-          >
-            GitHub দিয়ে চালিয়ে যান
+            className="flex items-center justify-center gap-2 px-3 py-2.5 border border-gray-200 rounded-lg bg-white hover:bg-gray-50 text-xs font-semibold text-gray-800 transition-colors shadow-sm"
+          ><FaGithub />
+            <span>GitHub দিয়ে চালিয়ে যান</span>
           </button>
         </div>
 

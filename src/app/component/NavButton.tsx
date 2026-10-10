@@ -1,4 +1,5 @@
 "use client";
+import { FaChevronDown } from "react-icons/fa";
 
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
@@ -23,6 +24,7 @@ const NavButton = () => {
           )}
 
           <h4>{user.name}</h4>
+          <span><FaChevronDown /></span>
         </Link>
       ) : (
         <div className="flex items-center gap-3">
