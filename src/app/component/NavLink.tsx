@@ -9,7 +9,7 @@ interface ItemsType {
 }
 
 const NavLink = async () => {
-  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/categories");
+  const res = await fetch("https://openapi.programming-hero.com/api/bazardor/categories");
   const data: ItemsType[] = await res.json();
 
   return (
