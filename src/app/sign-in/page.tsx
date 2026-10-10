@@ -7,7 +7,9 @@ import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 
 export default function SignInForm() {
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
@@ -23,42 +25,48 @@ export default function SignInForm() {
       });
 
       if (error) {
-        toast.error(error.message || "সাইন ইন করা যায়নি!");
+        toast.error("ইমেইল অথবা পাসওয়ার্ড সঠিক নয়!");
         return;
       }
 
       if (data) {
-        toast.success("সাইন ইন সফল হয়েছে!");
+        toast.success("সফলভাবে সাইন ইন হয়েছে!");
         window.location.href = "/";
       }
     } catch {
-      toast.error("কিছু একটা সমস্যা হয়েছে!");
+      toast.error("সাইন ইন করা যায়নি। আবার চেষ্টা করুন!");
     }
   };
+
   const handelSignin = async () => {
-              try {
-                const { error } = await authClient.signIn.social({
-                  provider: "google",
-                  callbackURL: "/",
-                });
+    try {
+      const { error } = await authClient.signIn.social({
+        provider: "google",
+        callbackURL: "/",
+      });
 
-                if (error) toast.error(error.message);
-              } catch {
-                toast.error("Google দিয়ে সাইন ইন করা যায়নি!");
-              }
-            }
-      const signIngithub = async () => {
-              try {
-                const { error } = await authClient.signIn.social({
-                  provider: "github",
-                  callbackURL: "/",
-                });
+      if (error) {
+        toast.error("গুগল দিয়ে সাইন ইন করা যায়নি!");
+      }
+    } catch {
+      toast.error("গুগল দিয়ে সাইন ইন করা যায়নি!");
+    }
+  };
 
-                if (error) toast.error(error.message);
-              } catch {
-                toast.error("GitHub দিয়ে সাইন ইন করা যায়নি!");
-              }
-            }      
+  const signIngithub = async () => {
+    try {
+      const { error } = await authClient.signIn.social({
+        provider: "github",
+        callbackURL: "/",
+      });
+
+      if (error) {
+        toast.error("গিটহাব দিয়ে সাইন ইন করা যায়নি!");
+      }
+    } catch {
+      toast.error("গিটহাব দিয়ে সাইন ইন করা যায়নি!");
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#f2f5f1] px-4 py-12 text-[#2d3748]">
@@ -130,7 +138,6 @@ export default function SignInForm() {
             onClick={handelSignin}
             className="flex items-center justify-center gap-2 px-3 py-2.5 border border-gray-200 rounded-lg bg-white hover:bg-gray-50 text-xs font-semibold text-gray-800 transition-colors shadow-sm"
           >
-            
             <span>Google দিয়ে চালিয়ে যান</span>
           </button>
 
@@ -139,7 +146,6 @@ export default function SignInForm() {
             onClick={signIngithub}
             className="flex items-center justify-center gap-2 px-3 py-2.5 border border-gray-200 rounded-lg bg-white hover:bg-gray-50 text-xs font-semibold text-gray-800 transition-colors shadow-sm"
           >
-            
             <span>GitHub দিয়ে চালিয়ে যান</span>
           </button>
         </div>
@@ -166,4 +172,3 @@ export default function SignInForm() {
     </div>
   );
 }
-
