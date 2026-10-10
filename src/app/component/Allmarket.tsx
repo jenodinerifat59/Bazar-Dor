@@ -33,7 +33,7 @@ const Allmarket = ({ items }: AllmarketProps) => {
       <h2 className="my-4 text-3xl font-bold">
         দামের সারসংক্ষেপ
       </h2>
-      <div className="grid grid-cols-3 gap-4">
+     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
         <div className="rounded-2xl border border-gray-200 p-5">
           <p>সর্বনিম্ন দাম</p>
