@@ -13,6 +13,7 @@ const SignUpPage = () => {
 
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
+    const image = String(formData.get("image") || "").trim();
     const password = String(formData.get("password") || "");
     const confirmPassword = String(
       formData.get("confirmPassword") || ""
@@ -33,6 +34,7 @@ const SignUpPage = () => {
         name,
         email,
         password,
+        image,
         callbackURL: "/",
       });
 
@@ -44,6 +46,38 @@ const SignUpPage = () => {
       if (data) {
         toast.success("অ্যাকাউন্ট তৈরি সফল হয়েছে!");
         window.location.href = "/";
+      }
+    } catch {
+      toast.error("কিছু একটা সমস্যা হয়েছে!");
+    }
+  };
+
+  // Google Sign In
+  const handelClick = async () => {
+    try {
+      const { error } = await authClient.signIn.social({
+        provider: "google",
+        callbackURL: "/",
+      });
+
+      if (error) {
+        toast.error(error.message || "Google দিয়ে লগইন করা যায়নি!");
+      }
+    } catch {
+      toast.error("কিছু একটা সমস্যা হয়েছে!");
+    }
+  };
+
+  // GitHub Sign In
+  const handelSignGithub = async () => {
+    try {
+      const { error } = await authClient.signIn.social({
+        provider: "github",
+        callbackURL: "/",
+      });
+
+      if (error) {
+        toast.error(error.message || "GitHub দিয়ে লগইন করা যায়নি!");
       }
     } catch {
       toast.error("কিছু একটা সমস্যা হয়েছে!");
@@ -84,6 +118,19 @@ const SignUpPage = () => {
               type="email"
               name="email"
               placeholder="you@example.com"
+              required
+              className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-emerald-600"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold mb-1">
+              ছবি (Image URL)
+            </label>
+            <input
+              type="url"
+              name="image"
+              placeholder="https://example.com/image.png"
               required
               className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-emerald-600"
             />
@@ -137,12 +184,7 @@ const SignUpPage = () => {
         <div className="grid grid-cols-2 gap-3 mb-6">
           <button
             type="button"
-            onClick={() =>
-              authClient.signIn.social({
-                provider: "google",
-                callbackURL: "/",
-              })
-            }
+            onClick={handelClick}
             className="border border-gray-200 hover:bg-gray-50 py-2.5 px-2 rounded-lg text-xs font-medium"
           >
             Google দিয়ে চালিয়ে যান
@@ -150,12 +192,7 @@ const SignUpPage = () => {
 
           <button
             type="button"
-            onClick={() =>
-              authClient.signIn.social({
-                provider: "github",
-                callbackURL: "/",
-              })
-            }
+            onClick={handelSignGithub}
             className="border border-gray-200 hover:bg-gray-50 py-2.5 px-2 rounded-lg text-xs font-medium"
           >
             GitHub দিয়ে চালিয়ে যান
@@ -186,4 +223,3 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
-

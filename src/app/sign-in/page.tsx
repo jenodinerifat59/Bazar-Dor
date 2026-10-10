@@ -3,8 +3,6 @@
 
 import React from "react";
 import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
 import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 
@@ -37,6 +35,30 @@ export default function SignInForm() {
       toast.error("কিছু একটা সমস্যা হয়েছে!");
     }
   };
+  const handelSignin = async () => {
+              try {
+                const { error } = await authClient.signIn.social({
+                  provider: "google",
+                  callbackURL: "/",
+                });
+
+                if (error) toast.error(error.message);
+              } catch {
+                toast.error("Google দিয়ে সাইন ইন করা যায়নি!");
+              }
+            }
+      const signIngithub = async () => {
+              try {
+                const { error } = await authClient.signIn.social({
+                  provider: "github",
+                  callbackURL: "/",
+                });
+
+                if (error) toast.error(error.message);
+              } catch {
+                toast.error("GitHub দিয়ে সাইন ইন করা যায়নি!");
+              }
+            }      
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#f2f5f1] px-4 py-12 text-[#2d3748]">
@@ -105,41 +127,19 @@ export default function SignInForm() {
         <div className="grid grid-cols-2 gap-3">
           <button
             type="button"
-            onClick={async () => {
-              try {
-                const { error } = await authClient.signIn.social({
-                  provider: "google",
-                  callbackURL: "/",
-                });
-
-                if (error) toast.error(error.message);
-              } catch {
-                toast.error("Google দিয়ে সাইন ইন করা যায়নি!");
-              }
-            }}
+            onClick={handelSignin}
             className="flex items-center justify-center gap-2 px-3 py-2.5 border border-gray-200 rounded-lg bg-white hover:bg-gray-50 text-xs font-semibold text-gray-800 transition-colors shadow-sm"
           >
-            <FcGoogle className="text-base" />
+            
             <span>Google দিয়ে চালিয়ে যান</span>
           </button>
 
           <button
             type="button"
-            onClick={async () => {
-              try {
-                const { error } = await authClient.signIn.social({
-                  provider: "github",
-                  callbackURL: "/",
-                });
-
-                if (error) toast.error(error.message);
-              } catch {
-                toast.error("GitHub দিয়ে সাইন ইন করা যায়নি!");
-              }
-            }}
+            onClick={signIngithub}
             className="flex items-center justify-center gap-2 px-3 py-2.5 border border-gray-200 rounded-lg bg-white hover:bg-gray-50 text-xs font-semibold text-gray-800 transition-colors shadow-sm"
           >
-            <FaGithub className="text-base text-gray-900" />
+            
             <span>GitHub দিয়ে চালিয়ে যান</span>
           </button>
         </div>
