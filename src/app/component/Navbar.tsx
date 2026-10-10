@@ -36,7 +36,6 @@ const Navbar = () => {
             </div>
           </Link>
 
-          {/* Navbar Buttons */}
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <NavButton />
           </div>
